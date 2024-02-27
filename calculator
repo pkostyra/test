@@ -1,0 +1,38 @@
+number = 0
+operation = None
+reset = True
+result = None
+operationlist = ["+", "-","*","/","**"]
+
+while True:
+  if reset:
+      number = int(input("Podaj początkową liczbę: "))
+      reset = False
+  
+  operation = input("Podaj operację arytmetyczną: " + str(operationlist) + "lub exit jeśli koniec lub reset: ")
+  if operation == "exit":
+      break
+  if operation == "reset":
+      reset = True
+      continue
+  
+  allowedperation = operation in operationlist
+  if not allowedoperation:
+      print("Została podana nieobsługiwana operacja, wybierz jedną z listy: " + str(operationlist))
+      continue
+  secondNumber = int(input("Podaj drugą liczbę dla operacji: " + str(operation) + ": "))
+  if operation == "+":
+    result = number + secondNumber
+  if operation == "-":
+    result = number - secondNumber
+  if operation == "*":
+    result = number * secondNumber
+  if operation == "/":
+    result = number / secondNumber
+  if operation == "**":
+    result = number ** secondNumber
+
+  print("Wynik: " + str(number) + " " + operation + " " + str(secondNumber) + " = " + str(result))
+  number = result
+  result = None
+  
